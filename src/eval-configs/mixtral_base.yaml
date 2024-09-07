@@ -1,0 +1,15 @@
+model:
+  type: "base"
+  base_params:
+    model_args: "pretrained=jungledude23/mixtral-base-mmlu,revision=main,model_parallel=True"
+    dtype: "4bit"
+    compile: true
+    shared_encoder: false
+    tokenizer: "mistralai/Mixtral-8x7B-v0.1"
+  trust_remote_code: true
+  merged_weights:
+    delta_weights: false 
+    adapter_weights: true
+    base_model: "mistralai/Mixtral-8x7B-v0.1"
+  generation:
+    multichoice_continuations_start_space: false
